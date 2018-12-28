@@ -2,7 +2,7 @@
   "name": "react-axios-node-js",
   "version": "0.0.3162",
   "private": true,
-  "main": "client/index.js",
+  "main": "src/client/index.js",
   "dependencies": {
     "axios": "0.18.0",
     "body-parser": "1.18.3",
