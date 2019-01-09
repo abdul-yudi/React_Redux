@@ -22,7 +22,7 @@ import userDetail from "./components/userDetail";
 // REDUCERS
 import users from "./redux/user";
 
-import "../public/assets/css/bootstrap.min.css";
+import "./assets/css/bootstrap.min.css";
 
 const Reducers = combineReducers({
   users: users

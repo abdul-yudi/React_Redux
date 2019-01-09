@@ -8,18 +8,15 @@ const Api = "https://reqres.in/api/users";
 export const Add = (first_name, last_name) => {
   return async dispatch => {
     await axios
-      .post(
-        `${Api}/add`,
-        {
-          first_name,
-          last_name
-        },
-        { headers: { "Content-Type": "application/json" } }
-      )
+      .post(`${Api}/add`, {
+        first_name,
+        last_name
+      })
       .then(response => {
+        console.log(response.data);
         return dispatch({
           type: "ADD",
-          payload: response.data.data
+          payload: response.data
         });
       })
       .catch(error => {
@@ -48,9 +45,7 @@ export const Delete = id => {
 export const Show = () => {
   return async dispatch => {
     await axios
-      .get(`${Api}`, {
-        headers: { "Content-Type": "application/json" }
-      })
+      .get(`${Api}`)
       .then(response => {
         return dispatch({
           type: "SHOW",
@@ -121,7 +116,7 @@ export const Search = keyword => {
 export default function users(state = { allUser: [] }, action) {
   switch (action.type) {
     case "ADD":
-      var insertUser = [...state.users, action.payload];
+      var insertUser = [...state.allUser, action.payload];
       return {
         ...state,
         allUser: insertUser
